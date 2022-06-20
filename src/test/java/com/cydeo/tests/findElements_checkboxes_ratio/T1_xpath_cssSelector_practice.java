@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class T1_xpath_cssSelector_practice {
     public static void main(String[] args) {
-        WebDriver driver= WebDriverFactory.getdDriver("chrome");
+        WebDriver driver= WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.get("https://practice.cydeo.com/forgot_password");
         WebElement homelink_exp1=driver.findElement(By.cssSelector("a[class='nav-link']"));
