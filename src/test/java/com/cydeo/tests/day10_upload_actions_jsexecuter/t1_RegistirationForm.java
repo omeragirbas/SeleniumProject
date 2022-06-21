@@ -33,6 +33,8 @@ public class t1_RegistirationForm {
         inputEmail.sendKeys(user+"@email.com");
 
         //7. Enter password
+        WebElement inputPassword=Driver.getDriver().findElement(By.xpath("//input[@name='password']"));
+        inputPassword.sendKeys(faker.numerify("########"));
         //8. Enter phone number
         //9. Select a gender from radio buttons
         //10.Enter date of birth
