@@ -5,11 +5,14 @@ import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class n11testt {
-    public static void main(String[] args) {
+    @Test
+            public void n11test(){
         WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -26,11 +29,21 @@ public class n11testt {
         girisyap.click();
         WebElement facebook=driver.findElement(By.xpath("//div[@class='facebook_large medium facebookBtn  btnLogin']"));
         facebook.click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement agreeButton = driver.findElement(By.xpath("//button[@value='1']"));
-        agreeButton.click();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        String firstwindowHandle= driver.getWindowHandle(); //bulundugun ana ekranin stringi
+        Set<String> windowHandles = driver.getWindowHandles(); // 2 penceriyi bilgi olarak icine saklar
+        for (String windowHandle : windowHandles) {
+            driver.switchTo().window(windowHandle);
+
+        }
+        WebElement accept=driver.findElement(By.xpath("//button[@value='1']"));
+        accept.click();
 
 
 
+
+
+        //driver.switchTo().window(firstwindowHandle);
     }
 }
